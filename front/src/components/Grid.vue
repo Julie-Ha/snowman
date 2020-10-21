@@ -1,8 +1,7 @@
 <template>
-  <div class="hello">
-    <ul>
-      <li v-for="cell of cells" :key="cell.c.value">
-        {{ cell.c.value }}
+  <div>
+    <ul class="grid">
+      <li class="cell" v-for="cell of cells" :key="cell.c.value">
       </li>
     </ul>
   </div>
@@ -12,7 +11,7 @@
 import axios from "axios";
 
 export default {
-  name: "HelloWorld",
+  name: "Grid",
   data: function() {
     return {
       cells: [],
@@ -37,4 +36,19 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 4rem);
+  grid-template-rows: repeat(10, 4rem);
+  list-style: none;
+  grid-column-gap: 0;
+}
+
+.cell {
+  width: 4rem;
+  height: 4rem;
+  border: solid 1px black;
+  background: lightblue;
+}
+</style>

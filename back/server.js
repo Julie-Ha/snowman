@@ -12,7 +12,7 @@ const conn = new Connection({
   endpoint: 'http://localhost:5820',
 });
  
-query.execute(conn, 'myDB', 'select * where {?c rdf:type :Cell}', 'application/sparql-results+json', {
+query.execute(conn, 'myDB', 'select ?c where {?c a :Cell} order by ?c', 'application/sparql-results+json', {
   reasoning:true
 }).then(({ body }) => {
    a = body.results.bindings;

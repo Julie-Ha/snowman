@@ -189,18 +189,15 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell00
 :cell00 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasNorth :wall ;
         :hasSouth :cell10 ;
         :hasX "0"^^xsd:int ;
         :hasY "0"^^xsd:int ;
-        :East :cell01 ;
-        :West :wall .
+        :East :cell01 .
 
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell01
 :cell01 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasNorth :wall ;
         :hasSouth :cell11 ;
         :hasX "0"^^xsd:int ;
         :hasY "1"^^xsd:int ;
@@ -211,7 +208,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell02
 :cell02 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasNorth :wall ;
         :hasSouth :cell12 ;
         :hasX "0"^^xsd:int ;
         :hasY "2"^^xsd:int ;
@@ -222,7 +218,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell03
 :cell03 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasNorth :wall ;
         :hasSouth :cell13 ;
         :hasX "0"^^xsd:int ;
         :hasY "3"^^xsd:int ;
@@ -233,7 +228,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell04
 :cell04 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasNorth :wall ;
         :hasSouth :cell14 ;
         :hasX "0"^^xsd:int ;
         :hasY "4"^^xsd:int ;
@@ -244,7 +238,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell05
 :cell05 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasNorth :wall ;
         :hasSouth :cell15 ;
         :hasX "0"^^xsd:int ;
         :hasY "5"^^xsd:int ;
@@ -255,7 +248,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell06
 :cell06 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasNorth :wall ;
         :hasSouth :cell16 ;
         :hasX "0"^^xsd:int ;
         :hasY "6"^^xsd:int ;
@@ -266,7 +258,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell07
 :cell07 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasNorth :wall ;
         :hasSouth :cell17 ;
         :hasX "0"^^xsd:int ;
         :hasY "7"^^xsd:int ;
@@ -277,7 +268,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell08
 :cell08 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasNorth :wall ;
         :hasSouth :cell18 ;
         :hasX "0"^^xsd:int ;
         :hasY "8"^^xsd:int ;
@@ -288,11 +278,9 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell09
 :cell09 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasNorth :wall ;
         :hasSouth :cell19 ;
         :hasX "0"^^xsd:int ;
         :hasY "9"^^xsd:int ;
-        :East :wall ;
         :West :cell08 .
 
 
@@ -303,8 +291,7 @@
         :hasSouth :cell20 ;
         :hasX "1"^^xsd:int ;
         :hasY "0"^^xsd:int ;
-        :East :cell11 ;
-        :West :wall .
+        :East :cell11 .
 
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell11
@@ -402,7 +389,6 @@
         :hasSouth :cell29 ;
         :hasX "1"^^xsd:int ;
         :hasY "9"^^xsd:int ;
-        :East :wall ;
         :West :cell18 .
 
 
@@ -413,8 +399,7 @@
         :hasSouth :cell30 ;
         :hasX "2"^^xsd:int ;
         :hasY "0"^^xsd:int ;
-        :East :cell21 ;
-        :West :wall .
+        :East :cell21 .
 
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell21
@@ -512,7 +497,6 @@
         :hasSouth :cell39 ;
         :hasX "2"^^xsd:int ;
         :hasY "9"^^xsd:int ;
-        :East :wall ;
         :West :cell28 .
 
 
@@ -523,8 +507,7 @@
         :hasSouth :cell40 ;
         :hasX "3"^^xsd:int ;
         :hasY "0"^^xsd:int ;
-        :East :cell31 ;
-        :West :wall .
+        :East :cell31 .
 
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell31
@@ -622,7 +605,6 @@
         :hasSouth :cell49 ;
         :hasX "3"^^xsd:int ;
         :hasY "9"^^xsd:int ;
-        :East :wall ;
         :West :cell38 .
 
 
@@ -633,8 +615,7 @@
         :hasSouth :cell50 ;
         :hasX "4"^^xsd:int ;
         :hasY "0"^^xsd:int ;
-        :East :cell41 ;
-        :West :wall .
+        :East :cell41 .
 
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell41
@@ -732,7 +713,6 @@
         :hasSouth :cell59 ;
         :hasX "4"^^xsd:int ;
         :hasY "9"^^xsd:int ;
-        :East :wall ;
         :West :cell48 .
 
 
@@ -743,8 +723,7 @@
         :hasSouth :cell60 ;
         :hasX "5"^^xsd:int ;
         :hasY "0"^^xsd:int ;
-        :East :cell51 ;
-        :West :wall .
+        :East :cell51 .
 
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell51
@@ -842,7 +821,6 @@
         :hasSouth :cell69 ;
         :hasX "5"^^xsd:int ;
         :hasY "9"^^xsd:int ;
-        :East :wall ;
         :West :cell58 .
 
 
@@ -853,8 +831,7 @@
         :hasSouth :cell70 ;
         :hasX "6"^^xsd:int ;
         :hasY "0"^^xsd:int ;
-        :East :cell61 ;
-        :West :wall .
+        :East :cell61 .
 
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell61
@@ -952,7 +929,6 @@
         :hasSouth :cell79 ;
         :hasX "6"^^xsd:int ;
         :hasY "9"^^xsd:int ;
-        :East :wall ;
         :West :cell68 .
 
 
@@ -963,8 +939,7 @@
         :hasSouth :cell80 ;
         :hasX "7"^^xsd:int ;
         :hasY "0"^^xsd:int ;
-        :East :cell71 ;
-        :West :wall .
+        :East :cell71 .
 
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell71
@@ -1062,7 +1037,6 @@
         :hasSouth :cell89 ;
         :hasX "7"^^xsd:int ;
         :hasY "9"^^xsd:int ;
-        :East :wall ;
         :West :cell78 .
 
 
@@ -1073,8 +1047,7 @@
         :hasSouth :cell90 ;
         :hasX "8"^^xsd:int ;
         :hasY "0"^^xsd:int ;
-        :East :cell81 ;
-        :West :wall .
+        :East :cell81 .
 
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell81
@@ -1172,7 +1145,6 @@
         :hasSouth :cell99 ;
         :hasX "8"^^xsd:int ;
         :hasY "9"^^xsd:int ;
-        :East :wall ;
         :West :cell88 .
 
 
@@ -1180,18 +1152,15 @@
 :cell90 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasNorth :cell80 ;
-        :hasSouth :wall ;
         :hasX "9"^^xsd:int ;
         :hasY "0"^^xsd:int ;
-        :East :cell91 ;
-        :West :wall .
+        :East :cell91 .
 
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/jouet#cell91
 :cell91 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasNorth :cell81 ;
-        :hasSouth :wall ;
         :hasX "9"^^xsd:int ;
         :hasY "1"^^xsd:int ;
         :East :cell92 ;
@@ -1202,7 +1171,6 @@
 :cell92 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasNorth :cell82 ;
-        :hasSouth :wall ;
         :hasX "9"^^xsd:int ;
         :hasY "2"^^xsd:int ;
         :East :cell93 ;
@@ -1213,7 +1181,6 @@
 :cell93 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasNorth :cell83 ;
-        :hasSouth :wall ;
         :hasX "9"^^xsd:int ;
         :hasY "3"^^xsd:int ;
         :East :cell94 ;
@@ -1224,7 +1191,6 @@
 :cell94 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasNorth :cell84 ;
-        :hasSouth :wall ;
         :hasX "9"^^xsd:int ;
         :hasY "4"^^xsd:int ;
         :East :cell95 ;
@@ -1235,7 +1201,6 @@
 :cell95 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasNorth :cell85 ;
-        :hasSouth :wall ;
         :hasX "9"^^xsd:int ;
         :hasY "5"^^xsd:int ;
         :East :cell96 ;
@@ -1246,7 +1211,6 @@
 :cell96 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasNorth :cell86 ;
-        :hasSouth :wall ;
         :hasX "9"^^xsd:int ;
         :hasY "6"^^xsd:int ;
         :East :cell97 ;
@@ -1257,7 +1221,6 @@
 :cell97 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasNorth :cell87 ;
-        :hasSouth :wall ;
         :hasX "9"^^xsd:int ;
         :hasY "7"^^xsd:int ;
         :East :cell98 ;
@@ -1268,7 +1231,6 @@
 :cell98 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasNorth :cell88 ;
-        :hasSouth :wall ;
         :hasX "9"^^xsd:int ;
         :hasY "8"^^xsd:int ;
         :East :cell99 ;
@@ -1279,10 +1241,8 @@
 :cell99 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasNorth :cell89 ;
-        :hasSouth :wall ;
         :hasX "9"^^xsd:int ;
         :hasY "9"^^xsd:int ;
-        :East :wall ;
         :West :cell98 .
 
 
