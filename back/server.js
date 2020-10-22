@@ -1,33 +1,38 @@
 const express = require("express");
 const app = express();
-let a = ''
-let myJson =''
 
+const { Connection, query } = require("stardog");
 
-const { Connection, query } = require('stardog');
- 
 const conn = new Connection({
-  username: 'admin',
-  password: 'admin',
-  endpoint: 'http://localhost:5820',
-});
- 
-query.execute(conn, 'myDB', 'select ?c where {?c a :Cell} order by ?c', 'application/sparql-results+json', {
-  reasoning:true
-}).then(({ body }) => {
-   a = body.results.bindings;
-  myJson = JSON.stringify(a);
+  username: "admin",
+  password: "admin",
+  endpoint: "http://localhost:5820",
 });
 
+let result = "";
+let myJson = "";
+query
+  .execute(
+    conn,
+    "myDB",
+    "select ?c ?x ?y ?css where {?c a :Cell . ?c :hasX ?x . ?c :hasY ?y . ?c :css ?css} order by ?c",
+    "application/sparql-results+json",
+    {
+      reasoning: true,
+    }
+  )
+  .then(({ body }) => {
+    result = body.results.bindings;
+    myJson = JSON.stringify(result);
+  });
 
-const port = 3000
-
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
-  res.send(myJson)
-})
+  res.send(myJson);
+});
 
+
+const port = 3000;
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
-
+  console.log(`Example app listening at http://localhost:${port}`);
+});

@@ -1,7 +1,8 @@
 <template>
   <div>
     <ul class="grid">
-      <li class="cell" v-for="cell of cells" :key="cell.c.value">
+      <li  v-for="cell of cells" :key="cell.c.value">
+        <div class="cell" :class="cell.css.value">{{cell.x.value+" "+cell.y.value}}</div>
       </li>
     </ul>
   </div>
@@ -42,13 +43,19 @@ export default {
   grid-template-columns: repeat(10, 4rem);
   grid-template-rows: repeat(10, 4rem);
   list-style: none;
-  grid-column-gap: 0;
 }
 
 .cell {
   width: 4rem;
   height: 4rem;
   border: solid 1px black;
+}
+
+.free {
   background: lightblue;
+}
+
+.player {
+  background: lightcoral;
 }
 </style>
