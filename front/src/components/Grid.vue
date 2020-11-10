@@ -1,8 +1,13 @@
 <template>
   <div>
     <ul class="grid">
-      <li  v-for="cell of cells" :key="cell.c.value">
-        <div class="cell" :class="cell.css.value">{{cell.x.value+" "+cell.y.value}}</div>
+      <li v-for="cell of cells" :key="cell.cell.value">
+        <div class="cell" :class="cell.css.value">
+          <div v-if="cell.css.value == 'north'">
+            <button>{{ cell.css.value }}</button>
+          </div>
+          <!-- {{ cell.x.value + " " + cell.y.value }} -->
+        </div>
       </li>
     </ul>
   </div>

@@ -89,14 +89,7 @@
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellEastPlayer
 :CellEastPlayer rdf:type owl:Class ;
-                owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                             owl:unionOf ( :CellFree
-                                                                           [ rdf:type owl:Restriction ;
-                                                                             owl:onProperty :hasEast ;
-                                                                             owl:someValuesFrom :CellFree
-                                                                           ]
-                                                                         )
-                                                           ]
+                owl:equivalentClass [ owl:intersectionOf ( :CellFree
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :hasWest ;
                                                              owl:someValuesFrom :CellPlayer
@@ -113,10 +106,6 @@
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellFree
 :CellFree rdf:type owl:Class ;
-          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                owl:onProperty :css ;
-                                owl:hasValue "free"
-                              ] ;
           rdfs:subClassOf :Cell .
 
 
@@ -132,14 +121,7 @@
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellNorthPlayer
 :CellNorthPlayer rdf:type owl:Class ;
-                 owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                              owl:unionOf ( :CellFree
-                                                                            [ rdf:type owl:Restriction ;
-                                                                              owl:onProperty :hasNorth ;
-                                                                              owl:someValuesFrom :CellFree
-                                                                            ]
-                                                                          )
-                                                            ]
+                 owl:equivalentClass [ owl:intersectionOf ( :CellFree
                                                             [ rdf:type owl:Restriction ;
                                                               owl:onProperty :hasSouth ;
                                                               owl:someValuesFrom :CellPlayer
@@ -170,14 +152,7 @@
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellSouthPlayer
 :CellSouthPlayer rdf:type owl:Class ;
-                 owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                              owl:unionOf ( :CellFree
-                                                                            [ rdf:type owl:Restriction ;
-                                                                              owl:onProperty :hasSouth ;
-                                                                              owl:someValuesFrom :CellFree
-                                                                            ]
-                                                                          )
-                                                            ]
+                 owl:equivalentClass [ owl:intersectionOf ( :CellFree
                                                             [ rdf:type owl:Restriction ;
                                                               owl:onProperty :hasNorth ;
                                                               owl:someValuesFrom :CellPlayer
@@ -194,14 +169,7 @@
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellWestPlayer
 :CellWestPlayer rdf:type owl:Class ;
-                owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
-                                                             owl:unionOf ( :CellFree
-                                                                           [ rdf:type owl:Restriction ;
-                                                                             owl:onProperty :hasWest ;
-                                                                             owl:someValuesFrom :CellFree
-                                                                           ]
-                                                                         )
-                                                           ]
+                owl:equivalentClass [ owl:intersectionOf ( :CellFree
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :hasEast ;
                                                              owl:someValuesFrom :CellPlayer
@@ -1323,39 +1291,5 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#wall
 :wall rdf:type owl:NamedIndividual .
 
-
-#################################################################
-#    Rules
-#################################################################
-
-:c rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
-
-[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment ""^^xsd:string ;
-   rdfs:label "S1"^^xsd:string ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :CellNorthPlayer ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :c
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :css ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> :c ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> "free"^^xsd:string
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :css ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :c ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> "north"^^xsd:string
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
- ] .
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

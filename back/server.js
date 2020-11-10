@@ -15,7 +15,7 @@ query
   .execute(
     conn,
     "myDB",
-    "select ?c ?x ?y ?css where {?c a :Cell . ?c :hasX ?x . ?c :hasY ?y . ?c :css ?css} order by ?c",
+    "select ?cell ?x ?y ?css where { ?cell a :Cell . ?cell :hasX ?x . ?cell :hasY ?y . OPTIONAL {?cell :css ?c1} BIND (exists{?cell :css ?c2} AS ?existsCSS ) BIND (IF(?existsCSS , ?c1, \"free\") as ?css)} order by ?cell",
     "application/sparql-results+json",
     {
       reasoning: true,
