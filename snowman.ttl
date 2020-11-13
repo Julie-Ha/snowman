@@ -84,6 +84,10 @@
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellBigBall
 :CellBigBall rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                   owl:onProperty :css ;
+                                   owl:hasValue "bigBall"
+                                 ] ;
              rdfs:subClassOf :Cell .
 
 
@@ -111,6 +115,10 @@
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellMediumBall
 :CellMediumBall rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty :css ;
+                                      owl:hasValue "mediumBall"
+                                    ] ;
                 rdfs:subClassOf :Cell .
 
 
@@ -147,6 +155,10 @@
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellSmallBall
 :CellSmallBall rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :css ;
+                                     owl:hasValue "smallBall"
+                                   ] ;
                rdfs:subClassOf :Cell .
 
 
@@ -674,7 +686,7 @@
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#cell44
 :cell44 rdf:type owl:NamedIndividual ,
-                 :CellFree ;
+                 :CellMediumBall ;
         :hasEast :cell45 ;
         :hasNorth :cell34 ;
         :hasSouth :cell54 ;
@@ -795,7 +807,7 @@
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#cell55
 :cell55 rdf:type owl:NamedIndividual ,
-                 :CellFree ;
+                 :CellBigBall ;
         :hasEast :cell56 ;
         :hasNorth :cell45 ;
         :hasSouth :cell65 ;
@@ -916,7 +928,7 @@
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#cell66
 :cell66 rdf:type owl:NamedIndividual ,
-                 :CellFree ;
+                 :CellSmallBall ;
         :hasEast :cell67 ;
         :hasNorth :cell56 ;
         :hasSouth :cell76 ;

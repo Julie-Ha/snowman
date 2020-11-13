@@ -1,12 +1,18 @@
 <template>
   <div>
     <ul class="grid">
-      <li v-for="cell of cells" :key="cell.cell.value">
+      <li v-for="cell of getCells" :key="cell.cell.value">
         <div class="cell" :class="cell.css.value">
-          <div v-if="cell.css.value == 'north'">
-            <button>{{ cell.css.value }}</button>
+          <div
+            v-if="
+              cell.css.value == 'north' ||
+                cell.css.value == 'south' ||
+                cell.css.value == 'east' ||
+                cell.css.value == 'west'
+            "
+          >
+            <button @click="move(cell.css.value)">{{ cell.css.value }}</button>
           </div>
-          <!-- {{ cell.x.value + " " + cell.y.value }} -->
         </div>
       </li>
     </ul>
@@ -34,6 +40,21 @@ export default {
           this.errors.push(e);
         });
     },
+    move(direction) {
+      axios
+        .get("http://localhost:3000/move/"+direction)
+        .then(() => {
+          this.loadCells();
+        })
+        .catch((e) => {
+          this.errors.push(e);
+        });
+    },
+  },
+  computed: {
+    getCells() {
+      return this.cells;
+    }
   },
   created() {
     this.loadCells();
