@@ -18,6 +18,7 @@
         </div>
       </li>
     </ul>
+    <button @click="reset">Reset</button>
   </div>
 </template>
 
@@ -52,6 +53,16 @@ export default {
           this.errors.push(e);
         });
     },
+    reset() {
+      axios
+        .get("http://localhost:3000/reset/")
+        .then(() => {
+          this.loadCells();
+        })
+        .catch((e) => {
+          this.errors.push(e);
+        });
+    },
   },
   computed: {
     getCells() {
@@ -76,7 +87,7 @@ export default {
 .cell {
   width: 64px;
   height: 64px;
-  border: solid 1px black;
+  border: solid 1px #494182;
 }
 
 .north, .south, .east, .west {
@@ -91,6 +102,17 @@ export default {
   color: #494182;
 }
 
+.north i {
+  transform: translate(0, 30px);
+}
+
+.east i {
+  transform: translate(-15px, 15px);
+}
+
+.west i {
+  transform: translate(15px, 15px);
+}
 
 .free {
   background: url("/images/free.png") center no-repeat;
