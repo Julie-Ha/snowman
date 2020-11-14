@@ -3,15 +3,17 @@
     <ul class="grid">
       <li v-for="cell of getCells" :key="cell.cell.value">
         <div class="cell" :class="cell.css.value">
-          <div
-            v-if="
-              cell.css.value == 'north' ||
-                cell.css.value == 'south' ||
-                cell.css.value == 'east' ||
-                cell.css.value == 'west'
-            "
-          >
-            <button @click="move(cell.css.value)">{{ cell.css.value }}</button>
+          <div v-if="cell.css.value.includes('north')">
+            <button @click="move('north')">north</button>
+          </div>
+          <div v-if="cell.css.value.includes('south')">
+            <button @click="move('south')">south</button>
+          </div>
+          <div v-if="cell.css.value.includes('east')">
+            <button @click="move('east')">east</button>
+          </div>
+          <div v-if="cell.css.value.includes('west')">
+            <button @click="move('west')">west</button>
           </div>
         </div>
       </li>
@@ -42,7 +44,7 @@ export default {
     },
     move(direction) {
       axios
-        .get("http://localhost:3000/move/"+direction)
+        .get("http://localhost:3000/move/" + direction)
         .then(() => {
           this.loadCells();
         })
@@ -54,7 +56,7 @@ export default {
   computed: {
     getCells() {
       return this.cells;
-    }
+    },
   },
   created() {
     this.loadCells();
@@ -75,6 +77,10 @@ export default {
   width: 4rem;
   height: 4rem;
   border: solid 1px black;
+}
+
+.north, .south, .east, .west {
+  background: lightgreen;
 }
 
 .free {

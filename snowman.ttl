@@ -93,7 +93,7 @@
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellEastPlayer
 :CellEastPlayer rdf:type owl:Class ;
-                owl:equivalentClass [ owl:intersectionOf ( :CellFree
+                owl:equivalentClass [ owl:intersectionOf ( :Cell
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :hasWest ;
                                                              owl:someValuesFrom :CellPlayer
@@ -113,6 +113,20 @@
           rdfs:subClassOf :Cell .
 
 
+###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellHalfSnowman
+:CellHalfSnowman rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( :CellBigBall
+                                                            :CellMediumBall
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :css ;
+                                       owl:hasValue "half"
+                                     ] ;
+                 rdfs:subClassOf :Cell .
+
+
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellMediumBall
 :CellMediumBall rdf:type owl:Class ;
                 owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -129,7 +143,7 @@
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellNorthPlayer
 :CellNorthPlayer rdf:type owl:Class ;
-                 owl:equivalentClass [ owl:intersectionOf ( :CellFree
+                 owl:equivalentClass [ owl:intersectionOf ( :Cell
                                                             [ rdf:type owl:Restriction ;
                                                               owl:onProperty :hasSouth ;
                                                               owl:someValuesFrom :CellPlayer
@@ -162,9 +176,24 @@
                rdfs:subClassOf :Cell .
 
 
+###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellSnowman
+:CellSnowman rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :CellBigBall
+                                                        :CellMediumBall
+                                                        :CellSmallBall
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :css ;
+                                   owl:hasValue "snowman"
+                                 ] ;
+             rdfs:subClassOf :Cell .
+
+
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellSouthPlayer
 :CellSouthPlayer rdf:type owl:Class ;
-                 owl:equivalentClass [ owl:intersectionOf ( :CellFree
+                 owl:equivalentClass [ owl:intersectionOf ( :Cell
                                                             [ rdf:type owl:Restriction ;
                                                               owl:onProperty :hasNorth ;
                                                               owl:someValuesFrom :CellPlayer
@@ -181,7 +210,7 @@
 
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#CellWestPlayer
 :CellWestPlayer rdf:type owl:Class ;
-                owl:equivalentClass [ owl:intersectionOf ( :CellFree
+                owl:equivalentClass [ owl:intersectionOf ( :Cell
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :hasEast ;
                                                              owl:someValuesFrom :CellPlayer
@@ -204,9 +233,7 @@
 :cell00 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasEast :cell01 ;
-        :hasNorth :wall ;
         :hasSouth :cell10 ;
-        :hasWest :wall ;
         :hasX "0"^^xsd:int ;
         :hasY "0"^^xsd:int .
 
@@ -215,7 +242,6 @@
 :cell01 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasEast :cell02 ;
-        :hasNorth :wall ;
         :hasSouth :cell11 ;
         :hasWest :cell00 ;
         :hasX "0"^^xsd:int ;
@@ -226,7 +252,6 @@
 :cell02 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasEast :cell03 ;
-        :hasNorth :wall ;
         :hasSouth :cell12 ;
         :hasWest :cell01 ;
         :hasX "0"^^xsd:int ;
@@ -237,7 +262,6 @@
 :cell03 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasEast :cell04 ;
-        :hasNorth :wall ;
         :hasSouth :cell13 ;
         :hasWest :cell02 ;
         :hasX "0"^^xsd:int ;
@@ -248,7 +272,6 @@
 :cell04 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasEast :cell05 ;
-        :hasNorth :wall ;
         :hasSouth :cell14 ;
         :hasWest :cell03 ;
         :hasX "0"^^xsd:int ;
@@ -259,7 +282,6 @@
 :cell05 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasEast :cell06 ;
-        :hasNorth :wall ;
         :hasSouth :cell15 ;
         :hasWest :cell04 ;
         :hasX "0"^^xsd:int ;
@@ -270,7 +292,6 @@
 :cell06 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasEast :cell07 ;
-        :hasNorth :wall ;
         :hasSouth :cell16 ;
         :hasWest :cell05 ;
         :hasX "0"^^xsd:int ;
@@ -281,7 +302,6 @@
 :cell07 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasEast :cell08 ;
-        :hasNorth :wall ;
         :hasSouth :cell17 ;
         :hasWest :cell06 ;
         :hasX "0"^^xsd:int ;
@@ -292,7 +312,6 @@
 :cell08 rdf:type owl:NamedIndividual ,
                  :CellFree ;
         :hasEast :cell09 ;
-        :hasNorth :wall ;
         :hasSouth :cell18 ;
         :hasWest :cell07 ;
         :hasX "0"^^xsd:int ;
@@ -302,8 +321,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#cell09
 :cell09 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasEast :wall ;
-        :hasNorth :wall ;
         :hasSouth :cell19 ;
         :hasWest :cell08 ;
         :hasX "0"^^xsd:int ;
@@ -316,7 +333,6 @@
         :hasEast :cell11 ;
         :hasNorth :cell00 ;
         :hasSouth :cell20 ;
-        :hasWest :wall ;
         :hasX "1"^^xsd:int ;
         :hasY "0"^^xsd:int .
 
@@ -412,7 +428,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#cell19
 :cell19 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasEast :wall ;
         :hasNorth :cell09 ;
         :hasSouth :cell29 ;
         :hasWest :cell18 ;
@@ -426,7 +441,6 @@
         :hasEast :cell21 ;
         :hasNorth :cell10 ;
         :hasSouth :cell30 ;
-        :hasWest :wall ;
         :hasX "2"^^xsd:int ;
         :hasY "0"^^xsd:int .
 
@@ -522,7 +536,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#cell29
 :cell29 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasEast :wall ;
         :hasNorth :cell19 ;
         :hasSouth :cell39 ;
         :hasWest :cell28 ;
@@ -536,7 +549,6 @@
         :hasEast :cell31 ;
         :hasNorth :cell20 ;
         :hasSouth :cell40 ;
-        :hasWest :wall ;
         :hasX "3"^^xsd:int ;
         :hasY "0"^^xsd:int .
 
@@ -632,7 +644,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#cell39
 :cell39 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasEast :wall ;
         :hasNorth :cell29 ;
         :hasSouth :cell49 ;
         :hasWest :cell38 ;
@@ -646,7 +657,6 @@
         :hasEast :cell41 ;
         :hasNorth :cell30 ;
         :hasSouth :cell50 ;
-        :hasWest :wall ;
         :hasX "4"^^xsd:int ;
         :hasY "0"^^xsd:int .
 
@@ -742,7 +752,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#cell49
 :cell49 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasEast :wall ;
         :hasNorth :cell39 ;
         :hasSouth :cell59 ;
         :hasWest :cell48 ;
@@ -756,7 +765,6 @@
         :hasEast :cell51 ;
         :hasNorth :cell40 ;
         :hasSouth :cell60 ;
-        :hasWest :wall ;
         :hasX "5"^^xsd:int ;
         :hasY "0"^^xsd:int .
 
@@ -852,7 +860,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#cell59
 :cell59 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasEast :wall ;
         :hasNorth :cell49 ;
         :hasSouth :cell69 ;
         :hasWest :cell58 ;
@@ -866,7 +873,6 @@
         :hasEast :cell61 ;
         :hasNorth :cell50 ;
         :hasSouth :cell70 ;
-        :hasWest :wall ;
         :hasX "6"^^xsd:int ;
         :hasY "0"^^xsd:int .
 
@@ -962,7 +968,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#cell69
 :cell69 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasEast :wall ;
         :hasNorth :cell59 ;
         :hasSouth :cell79 ;
         :hasWest :cell68 ;
@@ -976,7 +981,6 @@
         :hasEast :cell71 ;
         :hasNorth :cell60 ;
         :hasSouth :cell80 ;
-        :hasWest :wall ;
         :hasX "7"^^xsd:int ;
         :hasY "0"^^xsd:int .
 
@@ -1072,7 +1076,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#cell79
 :cell79 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasEast :wall ;
         :hasNorth :cell69 ;
         :hasSouth :cell89 ;
         :hasWest :cell78 ;
@@ -1086,7 +1089,6 @@
         :hasEast :cell81 ;
         :hasNorth :cell70 ;
         :hasSouth :cell90 ;
-        :hasWest :wall ;
         :hasX "8"^^xsd:int ;
         :hasY "0"^^xsd:int .
 
@@ -1182,7 +1184,6 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#cell89
 :cell89 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasEast :wall ;
         :hasNorth :cell79 ;
         :hasSouth :cell99 ;
         :hasWest :cell88 ;
@@ -1195,8 +1196,6 @@
                  :CellFree ;
         :hasEast :cell91 ;
         :hasNorth :cell80 ;
-        :hasSouth :wall ;
-        :hasWest :wall ;
         :hasX "9"^^xsd:int ;
         :hasY "0"^^xsd:int .
 
@@ -1206,7 +1205,6 @@
                  :CellFree ;
         :hasEast :cell92 ;
         :hasNorth :cell81 ;
-        :hasSouth :wall ;
         :hasWest :cell90 ;
         :hasX "9"^^xsd:int ;
         :hasY "1"^^xsd:int .
@@ -1217,7 +1215,6 @@
                  :CellFree ;
         :hasEast :cell93 ;
         :hasNorth :cell82 ;
-        :hasSouth :wall ;
         :hasWest :cell91 ;
         :hasX "9"^^xsd:int ;
         :hasY "2"^^xsd:int .
@@ -1228,7 +1225,6 @@
                  :CellFree ;
         :hasEast :cell94 ;
         :hasNorth :cell83 ;
-        :hasSouth :wall ;
         :hasWest :cell92 ;
         :hasX "9"^^xsd:int ;
         :hasY "3"^^xsd:int .
@@ -1239,7 +1235,6 @@
                  :CellFree ;
         :hasEast :cell95 ;
         :hasNorth :cell84 ;
-        :hasSouth :wall ;
         :hasWest :cell93 ;
         :hasX "9"^^xsd:int ;
         :hasY "4"^^xsd:int .
@@ -1250,7 +1245,6 @@
                  :CellFree ;
         :hasEast :cell96 ;
         :hasNorth :cell85 ;
-        :hasSouth :wall ;
         :hasWest :cell94 ;
         :hasX "9"^^xsd:int ;
         :hasY "5"^^xsd:int .
@@ -1261,7 +1255,6 @@
                  :CellFree ;
         :hasEast :cell97 ;
         :hasNorth :cell86 ;
-        :hasSouth :wall ;
         :hasWest :cell95 ;
         :hasX "9"^^xsd:int ;
         :hasY "6"^^xsd:int .
@@ -1272,7 +1265,6 @@
                  :CellFree ;
         :hasEast :cell98 ;
         :hasNorth :cell87 ;
-        :hasSouth :wall ;
         :hasWest :cell96 ;
         :hasX "9"^^xsd:int ;
         :hasY "7"^^xsd:int .
@@ -1283,7 +1275,6 @@
                  :CellFree ;
         :hasEast :cell99 ;
         :hasNorth :cell88 ;
-        :hasSouth :wall ;
         :hasWest :cell97 ;
         :hasX "9"^^xsd:int ;
         :hasY "8"^^xsd:int .
@@ -1292,16 +1283,10 @@
 ###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#cell99
 :cell99 rdf:type owl:NamedIndividual ,
                  :CellFree ;
-        :hasEast :wall ;
         :hasNorth :cell89 ;
-        :hasSouth :wall ;
         :hasWest :cell98 ;
         :hasX "9"^^xsd:int ;
         :hasY "9"^^xsd:int .
-
-
-###  http://www.semanticweb.org/21602916/ontologies/2020/9/snowman#wall
-:wall rdf:type owl:NamedIndividual .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

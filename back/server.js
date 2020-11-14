@@ -34,7 +34,7 @@ app.get("/", async (req, res) => {
     .execute(
       conn,
       "myDB",
-      'select ?cell ?x ?y ?css where { ?cell a :Cell . ?cell :hasX ?x . ?cell :hasY ?y . OPTIONAL {?cell :css ?c1} BIND (exists{?cell :css ?c2} AS ?existsCSS ) BIND (IF(?existsCSS , ?c1, "free") as ?css)} order by ?cell',
+      'select ?cell (group_concat(?c3) as ?css) where { ?cell a :Cell . OPTIONAL {?cell :css ?c1} BIND (exists{?cell :css ?c2} AS ?existsCSS ) BIND (IF(?existsCSS , ?c1, "free") as ?c3)} group by ?cell order by ?cell',
       "application/sparql-results+json",
       {
         reasoning: true,
@@ -48,12 +48,15 @@ app.get("/", async (req, res) => {
   res.send(myJson);
 });
 
-app.get("/move/north", async (req, res) => {
+app.get("/move/:direction", async (req, res) => {
+  let direction = req.params.direction;
+  let directionProperty = 'has'+(direction.charAt(0).toUpperCase() + direction.slice(1));
+
   await query
     .execute(
       conn,
       "myDB",
-      'DELETE  {?cellP rdf:type :CellPlayer.?cellE rdf:type ?class.?nextCell rdf:type ?bigball}  INSERT {?cellP rdf:type :CellFree.?cellE rdf:type :CellPlayer.?nextCell rdf:type ?class} WHERE {?cellP rdf:type :CellPlayer.?cellP :hasNorth ?cellE.{ VALUES ?class {:CellFree} ?cellE rdf:type ?class } UNION { VALUES ?class {:CellBigBall :CellSmallBall :CellMediumBall} ?cellE rdf:type ?class.?cellE :hasNorth ?nextCell.VALUES ?bigball {:CellFree } ?nextCell rdf:type ?bigball }}',
+      "DELETE  {   ?cellPlayer rdf:type :CellPlayer.   ?nextCell1 rdf:type ?class1.   ?nextCell2 rdf:type ?class2}  INSERT {   ?cellPlayer rdf:type :CellFree.   ?nextCell1 rdf:type :CellPlayer.   ?nextCell2 rdf:type ?class1}WHERE {	?cellPlayer rdf:type :CellPlayer.	?cellPlayer :"+directionProperty+" ?nextCell1.	{		VALUES ?class1 {:CellFree}		?nextCell1 rdf:type ?class1	}   UNION   {             VALUES ?class1 {:CellBigBall :CellSmallBall :CellMediumBall}      ?nextCell1 rdf:type ?class1.      ?nextCell1 :"+directionProperty+" ?nextCell2.      VALUES ?class2 {:CellFree }       ?nextCell2 rdf:type ?class2    }   UNION   {             VALUES ?class1 {:CellMediumBall}      ?nextCell1 rdf:type ?class1.      ?nextCell1 :"+directionProperty+" ?nextCell2.      VALUES ?class3 {:CellBigBall }       ?nextCell2 rdf:type ?class3   }   UNION   {             VALUES ?class1 {:CellSmallBall}      ?nextCell1 rdf:type ?class1.      ?nextCell1 :"+directionProperty+" ?nextCell2.      VALUES ?class3 {:CellHalfSnowman}       ?nextCell2 rdf:type ?class3   }}",
       "application/sparql-results+json",
       {
         reasoning: true,
@@ -65,56 +68,6 @@ app.get("/move/north", async (req, res) => {
     res.send("ok");
 });
 
-app.get("/move/south", async (req, res) => {
-  await query
-    .execute(
-      conn,
-      "myDB",
-      'DELETE  {?cellP rdf:type :CellPlayer.?cellE rdf:type ?class.?nextCell rdf:type ?bigball}  INSERT {?cellP rdf:type :CellFree.?cellE rdf:type :CellPlayer.?nextCell rdf:type ?class} WHERE {?cellP rdf:type :CellPlayer.?cellP :hasSouth ?cellE.{ VALUES ?class {:CellFree} ?cellE rdf:type ?class } UNION { VALUES ?class {:CellBigBall :CellSmallBall :CellMediumBall} ?cellE rdf:type ?class.?cellE :hasSouth ?nextCell.VALUES ?bigball {:CellFree } ?nextCell rdf:type ?bigball }}',
-      "application/sparql-results+json",
-      {
-        reasoning: true,
-      }
-    )
-    .then(({ body }) => {
-
-    });
-    res.send("ok");
-});
-
-app.get("/move/east", async (req, res) => {
-  await query
-    .execute(
-      conn,
-      "myDB",
-      'DELETE  {?cellP rdf:type :CellPlayer.?cellE rdf:type ?class.?nextCell rdf:type ?bigball}  INSERT {?cellP rdf:type :CellFree.?cellE rdf:type :CellPlayer.?nextCell rdf:type ?class} WHERE {?cellP rdf:type :CellPlayer.?cellP :hasEast ?cellE.{ VALUES ?class {:CellFree} ?cellE rdf:type ?class } UNION { VALUES ?class {:CellBigBall :CellSmallBall :CellMediumBall} ?cellE rdf:type ?class.?cellE :hasEast ?nextCell.VALUES ?bigball {:CellFree } ?nextCell rdf:type ?bigball }}',
-      "application/sparql-results+json",
-      {
-        reasoning: true,
-      }
-    )
-    .then(({ body }) => {
-
-    });
-    res.send("ok");
-});
-
-app.get("/move/west", async (req, res) => {
-  await query
-    .execute(
-      conn,
-      "myDB",
-      'DELETE  {?cellP rdf:type :CellPlayer.?cellE rdf:type ?class.?nextCell rdf:type ?bigball}  INSERT {?cellP rdf:type :CellFree.?cellE rdf:type :CellPlayer.?nextCell rdf:type ?class} WHERE {?cellP rdf:type :CellPlayer.?cellP :hasWest ?cellE.{ VALUES ?class {:CellFree} ?cellE rdf:type ?class } UNION { VALUES ?class {:CellBigBall :CellSmallBall :CellMediumBall} ?cellE rdf:type ?class.?cellE :hasWest ?nextCell.VALUES ?bigball {:CellFree } ?nextCell rdf:type ?bigball }}',
-      "application/sparql-results+json",
-      {
-        reasoning: true,
-      }
-    )
-    .then(({ body }) => {
-
-    });
-    res.send("ok");
-});
 
 const port = 3000;
 app.listen(port, () => {
