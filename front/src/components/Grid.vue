@@ -4,16 +4,16 @@
       <li v-for="cell of getCells" :key="cell.cell.value">
         <div class="cell" :class="cell.css.value">
           <div v-if="cell.css.value.includes('north')">
-            <button @click="move('north')">north</button>
+            <i @click="move('north')" class="fas fa-long-arrow-alt-up"></i>
           </div>
           <div v-if="cell.css.value.includes('south')">
-            <button @click="move('south')">south</button>
+            <i @click="move('south')" class="fas fa-long-arrow-alt-down"></i>
           </div>
           <div v-if="cell.css.value.includes('east')">
-            <button @click="move('east')">east</button>
+            <i @click="move('east')" class="fas fa-long-arrow-alt-right"></i>
           </div>
           <div v-if="cell.css.value.includes('west')">
-            <button @click="move('west')">west</button>
+            <i @click="move('west')" class="fas fa-long-arrow-alt-left"></i>
           </div>
         </div>
       </li>
@@ -68,26 +68,56 @@ export default {
 <style scoped>
 .grid {
   display: grid;
-  grid-template-columns: repeat(10, 4rem);
-  grid-template-rows: repeat(10, 4rem);
+  grid-template-columns: repeat(10, 64px);
+  grid-template-rows: repeat(10, 64px);
   list-style: none;
 }
 
 .cell {
-  width: 4rem;
-  height: 4rem;
+  width: 64px;
+  height: 64px;
   border: solid 1px black;
 }
 
 .north, .south, .east, .west {
-  background: lightgreen;
+  background: url("/images/free.png") center no-repeat;
+  display: flex;
+  justify-content: center;
 }
 
+.north i, .south i, .east i, .west i {
+  cursor: pointer;
+  font-size: 32px;
+  color: #494182;
+}
+
+
 .free {
-  background: lightblue;
+  background: url("/images/free.png") center no-repeat;
 }
 
 .player {
-  background: lightcoral;
+  background: url("/images/player.png") center no-repeat;
 }
+
+.smallBall {
+  background: url("/images/small.png") center no-repeat;
+}
+
+.mediumBall {
+  background: url("/images/medium.png") center no-repeat;
+}
+
+.bigBall {
+  background: url("/images/big.png") center no-repeat;
+}
+
+.half {
+  background: url("/images/half.png") center no-repeat;
+}
+
+.snowman {
+  background: url("/images/snowman.png") center no-repeat;
+}
+
 </style>
